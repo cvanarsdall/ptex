@@ -36,6 +36,8 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 */
 
+#include "../version.h"
+
 #include "PtexPlatform.h"
 #include <assert.h>
 
@@ -46,7 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 #define USE_SPIN // use spinlocks instead of mutex for main cache lock
 
 namespace PtexInternal {
-
+namespace PTEXTURE_VERSION {
 #ifdef USE_SPIN
     typedef SpinLock CacheLock;
 #else
@@ -97,7 +99,13 @@ namespace PtexInternal {
 #define STATS_INC(x)
 #define STATS_ADD(x, y)
 #endif
-}
+} /* end namespace PTEXTURE_VERSION */
+using namespace PTEXTURE_VERSION;
+} /* end namespace PtexInternal */
+
+namespace Ptexture {
+namespace PTEXTURE_VERSION {
+
 using namespace PtexInternal;
 
 /** One item in a cache, typically an open file or a block of memory */
@@ -296,5 +304,9 @@ private:
     int _size;
 };
 
+} /* end namespace PTEXTURE_VERSION */
+using namespace PTEXTURE_VERSION;
+
+} /* end namespace Ptexture */
 
 #endif

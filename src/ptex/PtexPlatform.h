@@ -40,6 +40,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
     @brief Platform-specific classes, functions, and includes.
 */
 
+#include "../version.h"
+
 // platform-specific includes
 #if defined(_WIN32) || defined(_WINDOWS) || defined(_MSC_VER)
 #ifndef WINDOWS
@@ -93,7 +95,7 @@ typedef off_t FilePos;
     
 
 namespace PtexInternal {
-
+namespace PTEXTURE_VERSION {
     /*
      * Mutex/SpinLock classes
      */
@@ -155,6 +157,8 @@ namespace PtexInternal {
     };
 #endif // __APPLE__
 #endif
-}
+} /* end namespace PTEXTURE_VERSION */
+using namespace PTEXTURE_VERSION;
+} /* end namespace PtexInternal */
 
 #endif // PtexPlatform_h

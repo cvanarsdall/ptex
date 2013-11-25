@@ -36,7 +36,12 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 */
 
+#include "../version.h"
+
 #include "Ptexture.h"
+
+namespace Ptexture {
+namespace PTEXTURE_VERSION {
 
 struct PtexIO : public Ptex {
     struct Header {
@@ -116,5 +121,10 @@ struct PtexIO : public Ptex {
 	return *(char*)&word == 1; 
     }
 };
+
+} /* end namespace PTEXTURE_VERSION */
+using namespace PTEXTURE_VERSION;
+
+} /* end namespace Ptexture */
 
 #endif

@@ -36,6 +36,8 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 */
 
+#include "../version.h"
+
 #include "PtexPlatform.h"
 #include <zlib.h>
 #include <map>
@@ -45,6 +47,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 #include "PtexIO.h"
 #include "PtexReader.h"
 
+namespace Ptexture {
+namespace PTEXTURE_VERSION {
 
 class PtexWriterBase : public PtexWriter, public PtexIO {
 public:
@@ -189,5 +193,10 @@ class PtexIncrWriter : public PtexWriterBase {
  private:
     FILE* _fp;		// the file being edited
 };
+
+} /* end namespace PTEXTURE_VERSION */
+using namespace PTEXTURE_VERSION;
+
+} /* end namespace Ptexture */
 
 #endif

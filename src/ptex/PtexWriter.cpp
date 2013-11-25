@@ -72,8 +72,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 #include "PtexWriter.h"
 
 
-namespace {
+namespace Ptexture {
+namespace PTEXTURE_VERSION {
 
+namespace {
     FILE* OpenTempFile(std::string& tmppath)
     {
 	static Mutex lock;
@@ -1394,3 +1396,6 @@ void PtexIncrWriter::finish()
 	fwrite(&_extheader, PtexUtils::min(uint32_t(ExtHeaderSize), _header.extheadersize), 1, _fp);
     }
 }
+
+} /* end namespace PTEXTURE_VERSION */
+} /* end namespace Ptexture */

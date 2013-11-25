@@ -35,6 +35,9 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 */
+
+#include "../version.h"
+
 #include <stdio.h>
 #include <zlib.h>
 #include <vector>
@@ -47,10 +50,16 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 #include "PtexUtils.h"
 
 #include "PtexHashMap.h"
+
+
+namespace Ptexture {
+namespace PTEXTURE_VERSION {
+
 using namespace PtexInternal;
 
 #ifndef NDEBUG
 #include <assert.h>
+
 template<typename T> class safevector : public std::vector<T>
 {
 public:
@@ -637,5 +646,10 @@ protected:
 
     z_stream_s _zstream;
 };
+
+} /* end namespace PTEXTURE_VERSION */
+using namespace PTEXTURE_VERSION;
+
+} /* end namespace Ptexture */
 
 #endif

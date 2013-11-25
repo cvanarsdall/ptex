@@ -53,6 +53,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 #ifdef OPEN_EXR
 
 #include "half.h"
+
+using namespace Ptexture;
+
 float h2f(uint16_t h)
 {
     half hval; hval.setBits(h);

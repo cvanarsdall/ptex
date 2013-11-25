@@ -36,7 +36,12 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 */
 
+#include "../version.h"
+
 #include "Ptexture.h"
+
+namespace Ptexture {
+namespace PTEXTURE_VERSION {
 
 class PtexSeparableKernel;
 
@@ -76,5 +81,9 @@ class PtexSeparableFilter : public PtexFilter, public Ptex
     DataType _dt;		// data type of texture
     BorderMode _uMode, _vMode;	// border modes (clamp,black,periodic)
 };
+
+} /* end namespace PTEXTURE_VERSION */
+using namespace PTEXTURE_VERSION;
+} /* end namespace Ptexture */
 
 #endif

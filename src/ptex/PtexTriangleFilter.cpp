@@ -32,7 +32,6 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 */
-
 #include "PtexPlatform.h"
 #include <math.h>
 #include <assert.h>
@@ -44,6 +43,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 namespace {
     inline float squared(float x) { return x*x; }
 }
+
+namespace Ptexture {
+namespace PTEXTURE_VERSION {
 
 void PtexTriangleFilter::eval(float* result, int firstChan, int nChannels,
 			      int faceid, float u, float v,
@@ -259,3 +261,7 @@ void PtexTriangleFilter::applyIter(PtexTriangleKernelIter& k, PtexFaceData* dh)
 	_weight += k.weight;
     }
 }
+
+} /* end namespace PTEXTURE_VERSION */
+} /* end namespace Ptexture */
+

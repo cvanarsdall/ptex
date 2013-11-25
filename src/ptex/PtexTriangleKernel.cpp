@@ -39,6 +39,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 #include "PtexTriangleKernel.h"
 
 
+namespace Ptexture {
+namespace PTEXTURE_VERSION {
+
 namespace {
     inline float gaussian(float x_squared)
     {
@@ -177,3 +180,6 @@ void PtexTriangleKernelIter::applyConst(float* dst, void* data, DataType dt, int
     // apply weight to single texel value
     PtexUtils::applyConst(weight, dst, data, dt, nChan);
 }
+
+} /* end namespace PTEXTURE_VERSION */
+} /* end namespace Ptexture */

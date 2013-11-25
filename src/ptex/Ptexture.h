@@ -62,12 +62,17 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 #  endif
 #endif
 
+#include "../version.h"
+
 #include "PtexInt.h"
 #include <ostream>
 
 #define PtexAPIVersion 2
 #define PtexFileMajorVersion 1
 #define PtexFileMinorVersion 3
+
+namespace Ptexture {
+namespace PTEXTURE_VERSION {
 
 /** Common data structures and enums used throughout the API. */
 struct Ptex {
@@ -990,5 +995,10 @@ template <class T> class PtexPtr {
     /// Assignment prohibited
     void operator= (PtexPtr& p);
 };
+
+} /* end namespace PTEXTURE_VERSION */
+using namespace PTEXTURE_VERSION;
+
+} /* end namespace Ptexture */
 
 #endif

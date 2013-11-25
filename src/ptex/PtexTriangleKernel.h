@@ -35,12 +35,16 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 */
+#include "../version.h"
 
 #include <assert.h>
 #include <algorithm>
 #include <numeric>
 #include "Ptexture.h"
 #include "PtexUtils.h"
+
+namespace Ptexture {
+namespace PTEXTURE_VERSION {
 
 // kernel width as a multiple of filter width (should be between 3 and 4)
 // for values below 3, the gaussian is not close to zero and a contour will be formed
@@ -223,5 +227,10 @@ class PtexTriangleKernel : public Ptex {
 	ko.weight = 0;
     }
 };
+
+} /* end namespace PTEXTURE_VERSION */
+using namespace PTEXTURE_VERSION;
+
+} /* end namespace PTEXTURE_VERSION */
 
 #endif

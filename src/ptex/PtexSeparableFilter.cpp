@@ -41,6 +41,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 #include "PtexSeparableKernel.h"
 #include "PtexUtils.h"
 
+namespace Ptexture {
+namespace PTEXTURE_VERSION {
 
 //#define NOEDGEBLEND // uncomment to disable filtering across edges (for debugging)
 
@@ -387,3 +389,6 @@ void PtexSeparableFilter::apply(PtexSeparableKernel& k, int faceid, const Ptex::
 	k.apply(_result, (char*)dh->getData()+_firstChanOffset, _dt, _nchan, _ntxchan);
     }
 }
+
+} /* end namespace Ptexture */
+} /* end namespace PTEXTURE_VERSION */

@@ -43,6 +43,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 #include "PtexReader.h"
 
 
+namespace Ptexture {
+namespace PTEXTURE_VERSION {
+
 PtexTexture* PtexTexture::open(const char* path, Ptex::String& error, bool premultiply)
 {
     // create a private cache and use it to open the file
@@ -1375,3 +1378,6 @@ PtexFaceData* PtexReader::TiledReducedFace::getTile(int tile)
     for (int i = 0; i < ntiles; i++) tiles[i]->release();
     return face;
 }
+
+} /* end namespace PTEXTURE_VERSION */
+} /* end namespace Ptexture */

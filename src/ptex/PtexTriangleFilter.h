@@ -35,8 +35,13 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 */
+#include "../version.h"
 
 #include "Ptexture.h"
+
+namespace Ptexture {
+namespace PTEXTURE_VERSION {
+
 class PtexTriangleKernel;
 class PtexTriangleKernelIter;
 
@@ -74,5 +79,10 @@ class PtexTriangleFilter : public PtexFilter, public Ptex
     int _ntxchan;		// number of channels in texture
     DataType _dt;		// data type of texture
 };
+
+} /* end namespace PTEXTURE_VERSION */
+using namespace PTEXTURE_VERSION;
+
+} /* end namespace Ptexture */
 
 #endif

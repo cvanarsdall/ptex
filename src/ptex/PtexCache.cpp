@@ -116,6 +116,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
 #ifdef GATHER_STATS
 namespace PtexInternal {
+namespace PTEXTURE_VERSION {
     CacheStats::~CacheStats() { 
 	if (getenv("PTEX_STATS"))
 	    print(); 
@@ -140,8 +141,13 @@ namespace PtexInternal {
     }
 
     CacheStats stats;
-}
+} /* end namespace PTEXTURE_VERSION */
+using namespace PTEXTURE_VERSION;
+} /* end namespace PtexInternal */
 #endif
+
+namespace Ptexture {
+namespace PTEXTURE_VERSION {
 
 PtexCacheImpl::~PtexCacheImpl()
 {
@@ -419,4 +425,5 @@ PtexCache* PtexCache::create(int maxFiles, int maxMem, bool premultiply,
     return new PtexReaderCache(maxFiles, maxMem, premultiply, handler);
 }
 
-
+} /* end namespace PTEXTURE_VERSION */
+} /* end namespace Ptexture */

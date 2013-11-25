@@ -32,7 +32,7 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 */
-
+#include "../version.h"
 #include "PtexPlatform.h"
 #include "Ptexture.h"
 #include "PtexSeparableFilter.h"
@@ -41,6 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
 namespace {
 
+using namespace Ptexture::PTEXTURE_VERSION;
 /** Point-sampling filter for rectangular textures */
 class PtexPointFilter : public PtexFilter, public Ptex
 {

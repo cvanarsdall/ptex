@@ -36,7 +36,12 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 */
 
+#include "../version.h"
+
 #include "Ptexture.h"
+
+namespace Ptexture {
+namespace PTEXTURE_VERSION {
 
 struct PtexUtils : public Ptex {
 
@@ -195,5 +200,11 @@ struct PtexUtils : public Ptex {
 	fn(weight, dst, data, nChan);
     }
 };
+
+} /* end namespace PTEXTURE_VERSION */
+using namespace PTEXTURE_VERSION;
+
+} /* end namespace Ptexture */
+
 
 #endif
