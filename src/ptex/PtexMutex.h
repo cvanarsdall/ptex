@@ -40,6 +40,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
 /** For internal use only */
 namespace PtexInternal {
+namespace PTEXTURE_VERSION {
 #ifndef NDEBUG
     template <class T>
     class DebugLock : public T {
@@ -74,6 +75,9 @@ namespace PtexInternal {
 
     typedef AutoLock<Mutex> AutoMutex;
     typedef AutoLock<SpinLock> AutoSpin;
-}
+} /* end namespace PTEXTURE_VERSION */
+using namespace PTEXTURE_VERSION;
+
+} /* end namespace PtextureInternal */
 
 #endif
