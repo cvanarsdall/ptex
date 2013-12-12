@@ -54,8 +54,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
 #include "half.h"
 
-using namespace Ptexture;
-
 float h2f(uint16_t h)
 {
     half hval; hval.setBits(h);
@@ -71,6 +69,8 @@ typedef half H;
 #else
 
 #include "PtexHalf.h"
+
+using namespace Ptexture;
 
 float h2f(uint16_t h)
 {

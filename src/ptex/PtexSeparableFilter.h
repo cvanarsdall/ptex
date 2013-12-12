@@ -80,8 +80,9 @@ class PtexSeparableFilter : public PtexFilter, public Ptex
     BorderMode _uMode, _vMode;	// border modes (clamp,black,periodic)
 };
 
-} /* end namespace PTEXTURE_VERSION */
+} // end namespace PTEXTURE_VERSION
 using namespace PTEXTURE_VERSION;
-} /* end namespace Ptexture */
+
+} // end namespace Ptexture
 
 #endif
