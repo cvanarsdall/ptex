@@ -33,21 +33,6 @@ set(PUBLIC_HEADER_FILES
     PtexWriter.h
 )
 
-
-set(PTEX_SONAME "")
-if (NOT WIN32 AND NOT IOS)
-
-    # Evaluate 'soname' from version string
-
-    # replace '_' with '.'
-    string(REGEX REPLACE "(_)" "." PTEX_SONAME ${PTEXTURE_VERSION})
-
-    # remove starting 'v' character
-    string(REGEX REPLACE "^v" "" PTEX_SONAME ${PTEX_SONAME})
-endif()
-
-
-
 add_library(Ptex_static STATIC ${SRCS})
 set_target_properties(Ptex_static PROPERTIES OUTPUT_NAME Ptex)
 
@@ -57,7 +42,7 @@ set_target_properties(Ptex_dynamic
     PROPERTIES
         OUTPUT_NAME Ptex
         CLEAN_DIRECT_OUTPUT 1
-        SOVERSION ${PTEX_SONAME}
+        SOVERSION ${PTEXTURE_VERSION}
 )
 
 target_link_libraries(Ptex_dynamic ${CMAKE_THREAD_LIBS_INIT} ${PLATFORM_LIBRARIES} ${ZLIB_LIBRARIES})

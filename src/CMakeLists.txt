@@ -3,21 +3,34 @@ project(ptex)
 
 #-------------------------------------------------------------------------------
 # Obtain Ptexture API version from version.h file
-if(EXISTS "${CMAKE_SOURCE_DIR}/version.h")
 
-    # parse version string from src/version.h
-    file(STRINGS "${CMAKE_SOURCE_DIR}/version.h" PTEXTURE_VERSION REGEX "^#define PTEXURE_VERSION .*$")
-    string(REPLACE "#define PTEXURE_VERSION" "" PTEXTURE_VERSION ${PTEXTURE_VERSION})
+function(parseHeader FILENAME VARNAME OUTPUT)
 
-    # remove whitespace
-    set(blah "   foo bar  ")
-    string(REGEX REPLACE "[ \t\r\n]+" "" PTEXTURE_VERSION ${PTEXTURE_VERSION})
-    string(REGEX REPLACE "[ \t\r\n]+$" "" PTEXTURE_VERSION ${PTEXTURE_VERSION})
+    set(PATTERN "#define ${VARNAME} .*$")
+
+    file(STRINGS ${FILENAME} TMP REGEX ${PATTERN})
+
+    string(REPLACE "#define ${VARNAME}" "" TMP ${TMP})
+    string(REGEX REPLACE "[ \t\r\n]+" "" TMP ${TMP})
+    string(REGEX REPLACE "[ \t\r\n]+$" "" TMP ${TMP})
+  
+    set(${OUTPUT} ${TMP} PARENT_SCOPE)
+endfunction()
+
+# parse version string from Ptexture.h
+set(HEADER_FILE "${CMAKE_SOURCE_DIR}/ptex/Ptexture.h")
+if(EXISTS ${HEADER_FILE})
+
+    parseHeader( ${HEADER_FILE} PtexAPIVersion PTEX_API_VERSION  )
+    parseHeader( ${HEADER_FILE} PtexFileMajorVersion PTEX_FILE_VERSION_MAJOR )
+    parseHeader( ${HEADER_FILE} PtexFileMinorVersion PTEX_FILE_VERSION_MINOR )
+    
+    set(PTEXTURE_VERSION "${PTEX_API_VERSION}.${PTEX_FILE_VERSION_MAJOR}.${PTEX_FILE_VERSION_MINOR}")
 else()
-    message(FATAL_ERROR "Cannot locate ${CMAKE_SOURCE_DIR}/version.h in CMAKE_SOURCE_DIR")
+    message(FATAL_ERROR "Cannot locate ${HEADER_FILE} in ${CMAKE_SOURCE_DIR}")
 endif()
 
-message(STATUS "Generating build for ${CMAKE_PROJECT_NAME} version \"${PTEXTURE_VERSION}\"")
+message(STATUS "Generating build for ${CMAKE_PROJECT_NAME} version (${PTEXTURE_VERSION})")
 
 #-------------------------------------------------------------------------------
 # Detect Clang (until a cmake version provides built-in variables)

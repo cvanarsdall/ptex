@@ -69,8 +69,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 #define PtexFileMajorVersion 1
 #define PtexFileMinorVersion 3
 
-#define PASTER(x,y,z) v##x##_##y##_##z
-#define VEREVAL(x,y,z) PASTER(x,y,z)
+#define STRINGIFY(x,y,z) v##x##_##y##_##z
+#define VEREVAL(x,y,z) STRINGIFY(x,y,z)
 #define PTEXTURE_VERSION VEREVAL(PtexAPIVersion,PtexFileMajorVersion,PtexFileMinorVersion)
 
 namespace Ptexture {
